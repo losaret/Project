@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from blog_site.views import Index
+from user_profile.views import Register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view()),
-    path('login/', auth_views.LoginView.as_view())
+    path('login/', auth_views.LoginView.as_view()),
+    path('register/', Register, name='Register')
 ]
