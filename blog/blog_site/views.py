@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class Index(View):
+class Index(LoginRequiredMixin, View):
     def get(self,request):
         params = {}
         params["name"] = "Django"
