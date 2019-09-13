@@ -126,4 +126,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 SITE_HOST = '127.0.0.1:8000'
