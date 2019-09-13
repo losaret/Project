@@ -1,0 +1,26 @@
+{% extends "blog_site/base_b4.html" %}
+{% load staticfiles %}
+{# load my_tags #}
+{% load i18n %}
+{% block content %}
+
+<div class="row m-3">
+    <form method="post" class = "form-inline mb-2" action="post/">{% csrf_token %}
+        {{ form.text.errors }}
+        {{ form.text }}
+        <button class="btn btn-outline-primary m-2" type="submit" value="post">{% trans 'Post' %}</button>
+    </form>
+        
+</div>
+
+<div class="col-md-7">
+    {% for post in posts %}
+        {% include "blog_site/post_view.html"%}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}
+

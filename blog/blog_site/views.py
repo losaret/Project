@@ -16,8 +16,9 @@ class Index(LoginRequiredMixin, View):
 
 class Profile(View):
     """User profile reachable from /user/<username> URL"""
-    def get(self, requset, username):
+    def get(self, request, username):
         params = dict()
-        params['posts'] = blog_post.objects.filter(user=user)
+        userProfile = User.objects.get(username=username)
+        params['posts'] = blog_post.objects.filter(user=userProfile)
         params['user'] = User.objects.get(username=username)
         return render(request, 'blog_site/other_profile.html', params)

@@ -1,0 +1,16 @@
+{% load staticfiles %}
+{# load my_tags #}
+{% load i18n %}
+<div class="container p-0">
+    <div class="card w-100 h-100 shadow-sm m-1">
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <a href="/user/{{ post.user }}">{{ post.user }}</a>
+                <small class="text-muted">{{ post.created_date }}</small>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text" style="font-size: 20px;">{{ post.post_text | safe | linebreaksbr }}</p>
+        </div>
+    </div>
+</div>

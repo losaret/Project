@@ -1,0 +1,35 @@
+{% extends "blog_site/base_b4.html" %}
+{% load staticfiles %}
+{# load my_tags #}
+{% load i18n %}
+
+{% block navbar %}
+    <div class="container sticky-top">
+        <nav class="navbar navbar-light bg-light">
+            {{ profile.username }}'s Profile Page
+            {% if profile.username != user.username %}
+                <div class="btn btn-outline-primary follow-btn" role="button" title="Click to {{ following|yesno:"unfollow, follow" }} {{ profile.username }}" value="{{ following }}" username="{{ profile.username }}">
+                    <span class="follow-text">
+                        {{ following|yesno:"Unfollow, Follow" }}
+                    </span>
+                </div>
+            {% endif %}
+        </nav>
+    </div>
+{% endblock %}
+<div class="btn btn-outline-primary like-btn" role="button" title="Click to {{ liked|yesno:"like, follow" }} {{ profile.username }}" value="{{ liked }}" username="{{ profile.username }}">
+                    <span class="follow-text">
+                        {{ liked|yesno:"like, Follow" }}
+                    </span>
+                </div>
+{% block content %}
+<div class="col-md-7">
+    {% for post in posts %}
+        {% include "blog_site/post_view.html"%}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}
