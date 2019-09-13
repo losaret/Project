@@ -10,3 +10,10 @@ class blog_post(models.Model):
     created_date = models.DateTimeField('created_date', default=timezone.now)
     def __str__(self):
         return self.post_text
+
+class Hashtag(models.Model):
+    """ Hashtag model"""
+    name = models.CharField(max_length=64, unique=True)
+    post = models.ManyToManyField(blog_post)
+    def _unicode(self):
+        return self.name

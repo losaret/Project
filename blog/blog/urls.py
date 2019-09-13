@@ -25,5 +25,7 @@ urlpatterns = [
     path('', Index.as_view()),
     path('login/', auth_views.LoginView.as_view()),
     path('register/', Register, name='Register'),
-    path('user/<str:username>/', blog_site.Profile.as_view()) 
+    path('user/<str:username>/', blog_site.Profile.as_view()),
+    path('post/', blog_site.Publishpost.as_view()),
+    path('hashtag/<str:hashtag>/', blog_site.HastagCloud.as_view())
 ]

@@ -1,0 +1,8 @@
+{% extends "blog_site/base_b4.html" %}
+{% block content %}
+<div class="col-md-7">
+    {% for post in posts.all %}
+        {% include "blog_site/post_view.html"%}
+    {% endfor %}
+</div>
+{% endblock %}

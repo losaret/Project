@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{# load my_tags #}
+{% load my_tags %}
 {% load i18n %}
 <div class="container p-0">
     <div class="card w-100 h-100 shadow-sm m-1">
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-body">
-            <p class="card-text" style="font-size: 20px;">{{ post.post_text | safe | linebreaksbr }}</p>
+            <p class="card-text" style="font-size: 20px;">{{ post.post_text | with_hashtags | safe | linebreaksbr }}</p>
         </div>
     </div>
 </div>
