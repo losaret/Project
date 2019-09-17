@@ -91,3 +91,17 @@ class HastagCloud(View):
         get_hashtag = Hashtag.objects.get(name=hashtag)
         params['posts'] = get_hashtag.post
         return render(request, 'blog_site/hashtag.html', params)
+
+class Search(View):
+    """ Searching posts reachable from from /search/?q=<query> URL """
+    def get(self, request):
+        query = request.GET.get('query')
+        if query == '':
+            query = None
+        params = dict()
+        try:
+            posts = blog_post.objects.filter(post_text__icontains=query)
+            params['posts'] = posts
+        except ValueError:
+            pass
+        return render(request, 'blog_site/search.html', params)
