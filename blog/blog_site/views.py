@@ -72,7 +72,10 @@ class Publishpost(View):
         if form.is_valid():
             user = User.objects.get(username=request.user.username)
             text = form.cleaned_data['text']
-            image = request.FILES['image']
+            try:
+                image = request.FILES['image']
+            except KeyError:
+                image = None
             published_post = blog_post(
                 post_text = text,
                 post_image = image,
