@@ -8,6 +8,7 @@ class blog_post(models.Model):
     post_text = models.CharField(max_length=260)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateTimeField('created_date', default=timezone.now)
+    post_image = models.ImageField(upload_to='uploads/', null=True, blank=True)
     def __str__(self):
         return self.post_text
 

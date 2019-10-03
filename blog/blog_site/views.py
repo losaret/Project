@@ -68,12 +68,14 @@ class Profile(View):
 class Publishpost(View):
     """Publish post from available on page / URL"""
     def post(self, request):
-        form = PublishForm(request.POST)
+        form = PublishForm(request.POST, request.FILES)
         if form.is_valid():
             user = User.objects.get(username=request.user.username)
             text = form.cleaned_data['text']
+            image = request.FILES['image']
             published_post = blog_post(
                 post_text = text,
+                post_image = image,
                 user = user
             )
             published_post.save()
