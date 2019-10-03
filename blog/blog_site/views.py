@@ -71,9 +71,9 @@ class Publishpost(View):
         form = PublishForm(request.POST, request.FILES)
         if form.is_valid():
             user = User.objects.get(username=request.user.username)
-            text = form.cleaned_data['text']
+            text = form.cleaned_data['post_text']
             try:
-                image = request.FILES['image']
+                image = request.FILES['post_image']
             except KeyError:
                 image = None
             published_post = blog_post(
@@ -82,7 +82,7 @@ class Publishpost(View):
                 user = user
             )
             published_post.save()
-            words = form.cleaned_data['text'].split(' ')
+            words = form.cleaned_data['post_text'].split(' ')
             for word in words:
                 if word[0] == '#':
                     Add_Hashtag, created = Hashtag.objects.get_or_create(name=word[1:])

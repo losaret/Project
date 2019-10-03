@@ -1,6 +1,8 @@
 from django import forms
+from .models import blog_post
 
 
-class PublishForm(forms.Form):
-    text = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control publish-post', 'rows':2, 'cols':45, 'placeholder': 'Publish new post'}), max_length=260)
-    image = forms.ImageField(required=False)
+class PublishForm(forms.ModelForm):
+    class Meta:
+        model = blog_post
+        fields = {'post_text', 'post_image', }
