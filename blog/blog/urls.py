@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 from blog_site.views import Index
 from user_profile.views import Register
@@ -31,3 +33,4 @@ urlpatterns = [
     path('hashtag/<str:hashtag>/', blog_site.HastagCloud.as_view()),
     path('search/', blog_site.Search.as_view())
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

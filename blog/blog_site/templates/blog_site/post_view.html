@@ -11,6 +11,11 @@
         </div>
         <div class="card-body">
             <p class="card-text" style="font-size: 20px;">{{ post.post_text | with_hashtags | safe | linebreaksbr }}</p>
+            {% if post.post_image %}
+                <p><img src="{{ post.post_image.url }}" height="350" ></p>
+            {% else %}
+                <p></p>
+            {% endif %}
         </div>
     </div>
 </div>

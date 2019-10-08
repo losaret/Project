@@ -97,4 +97,4 @@ db.sqlite3
 !.vscode/extensions.json
 
 ### Media files ###
-blog/media/.
+blog/media/
