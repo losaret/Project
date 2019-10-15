@@ -21,7 +21,7 @@
         <div class="container">
             <a class="navbar-brand" href="/">{% trans 'Home' %}</a>
             <form class="form-inline my-2 my-lg-0" action="/search/" method="get">
-                <input class="form-control rounded-pill mr-sm-1" type="search" placeholder={% trans 'Search' %} aria-label="Search" name="query">
+                <input class="form-control rounded-pill mr-sm-1" type="search" placeholder={% trans 'Search' %} required aria-label="Search" name="query">
                 <button class="btn btn-link p-1" type="submit" aria-hidden="true" style="font-size:25px;"><i class="fas fa-search" ></i></button>
             </form>
             <div class="nav-item btn-group">

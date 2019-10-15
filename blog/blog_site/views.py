@@ -101,8 +101,6 @@ class Search(View):
     """ Searching posts reachable from from /search/?q=<query> URL """
     def get(self, request):
         query = request.GET.get('query')
-        if query == '':
-            query = None
         params = dict()
         try:
             posts = blog_post.objects.filter(post_text__icontains=query)
