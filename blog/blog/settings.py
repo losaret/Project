@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project',
-        'USER': 'grigory',
+        'USER': 'project',
         'PASSWORD': 'blogpass',
         'HOST': 'localhost',
         'PORT': '',
@@ -117,8 +117,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
